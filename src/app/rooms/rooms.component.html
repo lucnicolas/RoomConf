@@ -1,0 +1,17 @@
+<div *ngFor="let currentRoom of rooms">
+
+  <p>
+    Salle de visio conférence :
+    {{ currentRoom.name }}
+    --
+    <i [ngStyle]="{'color':currentRoom.state === true ? 'green' : 'red'}">
+      {{ currentRoom.state == 0 ? "Occupée" : "Libre" }}
+    </i>
+    <a *ngIf="currentRoom.lastUpdate">
+      -- {{ currentRoom.lastUpdate | date : "medium" }}
+    </a>
+  </p>
+
+  <button (click)="switchState(currentRoom)">Changer l'état</button>
+
+</div>
